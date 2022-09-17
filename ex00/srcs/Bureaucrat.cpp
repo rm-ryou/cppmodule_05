@@ -67,7 +67,6 @@ void	Bureaucrat::GradeUp()
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 {
-	os << "\x1b[34mname\x1b[39m: " << bureaucrat.getName() << std::endl << \
-			"\x1b[34mgrade\x1b[39m: " << bureaucrat.getGrade();
+	os << bureaucrat.getName() << ", bureaucrat grade" << bureaucrat.getGrade();
 	return os;
 }
