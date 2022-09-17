@@ -7,6 +7,8 @@ SRCS := $(wildcard $(SRCS_DIR)/*.cpp)
 OBJS := $(SRCS:$(SRCS_DIR)/%.cpp=$(OBJS_DIR)/%.o)
 DEPS := $(SRCS:$(SRCS_DIR)/%.cpp=$(OBJS_DIR)/%.d)
 
+RM := rm -rf
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -17,7 +19,7 @@ $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) $(OBJS_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
