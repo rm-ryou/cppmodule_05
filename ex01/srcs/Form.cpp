@@ -9,9 +9,9 @@ Form::Form(const std::string& name, const int grade2sign, const int grade2execut
 {
 	std::cout << "Form constructor called." << std::endl;
 	if (this->grade2Sign_ < 1 || this->grade2Execute_ < 1)
-		throw Form::GradeTooHighExeption();
+		throw Form::GradeTooHighException();
 	else if (this->grade2Sign_ < 1 || this->grade2Execute_ < 1)
-		throw Form::GradeTooLowExeption();
+		throw Form::GradeTooLowException();
 }
 
 Form::Form(const Form& form): Form()
@@ -60,7 +60,7 @@ const char*	Form::GradeTooHighException::what() const throw()
 	return "Grade too high.";
 }
 
-const char*	Form::GradeLowHighException::what() const throw()
+const char*	Form::GradeTooLowException::what() const throw()
 {
 	return "Grade too low.";
 }
@@ -70,4 +70,14 @@ void	Form::beSigned(Bureaucrat& bureaucrat)
 	if (bureaucrat.getGrade() > this->grade2Sign_)
 		throw GradeTooLowException();
 	this->isSigned_ = true;
+}
+
+std::ostream&	operator<<(std::ostream& os, const Form& form)
+{
+	std::cout << "name: " << form.getName() << std::endl;
+	std::cout << "is signed: ";
+	form.getIsSigned() ? std::cout << "true": std::cout << "false";
+	std::cout << "\nsign: " << form.getGrade2Sign() << std::endl;
+	std::cout << "execute: " << form.getGrade2Execute();
+	return os;
 }

@@ -3,6 +3,10 @@
 
 #include <iostream>
 
+#include "Form.h"
+
+class Form;
+
 class Bureaucrat {
 private:
 	std::string	name_;
@@ -28,6 +32,8 @@ public:
 
 	void	GradeDown();
 	void	GradeUp();
+
+	void	signForm(Form& form);
 };
 
 std::ostream&	operator<<(std::ostream& os, const Bureaucrat& bureaucrat);

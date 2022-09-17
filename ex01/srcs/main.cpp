@@ -1,8 +1,30 @@
 #include "Bureaucrat.h"
+#include "Form.h"
 
 int	main()
 {
 	try {
+		Bureaucrat	bureaucrat;
+		Form		form;
+		std::cout << bureaucrat << std::endl;
+		std::cout << form << std::endl;
+		bureaucrat.signForm(form);
+		std::cout << form << std::endl;
+		} catch (std::exception &e) {
+		std::cerr << "Invalid GRADE. " << e.what() << std::endl;
+	}
+	try {
+		std::cout << "=================================" << std::endl;
+		Bureaucrat	bureaucrat("hoge", 10);
+		Form		form("fuga", 50, 50);
+		std::cout << bureaucrat << std::endl;
+		std::cout << form << std::endl;
+		bureaucrat.signForm(form);
+		std::cout << form << std::endl;
+		} catch (std::exception &e) {
+		std::cerr << "Invalid GRADE. " << e.what() << std::endl;
+	}
+/*	try {
 		Bureaucrat	grade;
 		std::cout << grade << std::endl;
 		grade.GradeUp();
@@ -55,6 +77,6 @@ int	main()
 		std::cout << grade1000 << std::endl;
 	} catch (std::exception &e) {
 		std::cerr << "Invalid GRADE." << e.what() << std::endl;
-	}
+	}*/
 	return 0;
 }

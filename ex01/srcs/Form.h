@@ -1,7 +1,11 @@
 #ifndef FORM_H
 #define FORM_H
 
+#include <iostream>
+
 #include "Bureaucrat.h"
+
+class Bureaucrat;
 
 class Form {
 private:
