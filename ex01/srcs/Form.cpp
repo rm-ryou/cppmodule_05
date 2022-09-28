@@ -10,7 +10,7 @@ Form::Form(const std::string& name, const int grade2sign, const int grade2execut
 	std::cout << "Form constructor called." << std::endl;
 	if (this->grade2Sign_ < 1 || this->grade2Execute_ < 1)
 		throw Form::GradeTooHighException();
-	else if (this->grade2Sign_ < 1 || this->grade2Execute_ < 1)
+	else if (this->grade2Sign_ > 150 || this->grade2Execute_ > 150)
 		throw Form::GradeTooLowException();
 }
 
