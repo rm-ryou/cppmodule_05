@@ -14,7 +14,7 @@ Form::Form(const std::string& name, const int grade2sign, const int grade2execut
 		throw Form::GradeTooLowException();
 }
 
-Form::Form(const Form& form): Form()
+Form::Form(const Form& form): name_(form.name_), isSigned_(form.isSigned_), grade2Sign_(form.grade2Sign_), grade2Execute_(form.grade2Execute_)
 {
 	std::cout << "Form Copy constructor called." << std::endl;
 	*this = form;
@@ -23,10 +23,12 @@ Form::Form(const Form& form): Form()
 Form&	Form::operator=(const Form& other)
 {
 	std::cout << "Form Copy assignment operator called." << std::endl;
-	const_cast<std::string&>(this->name_)  = other.getName();
-	this->isSigned_ = other.getIsSigned();
-	const_cast<int&>(this->grade2Sign_) = other.getGrade2Sign();
-	const_cast<int&>(this->grade2Execute_) = other.getGrade2Execute();
+	if (this != &other) {
+		const_cast<std::string&>(this->name_)  = other.getName();
+		this->isSigned_ = other.getIsSigned();
+		const_cast<int&>(this->grade2Sign_) = other.getGrade2Sign();
+		const_cast<int&>(this->grade2Execute_) = other.getGrade2Execute();
+	}
 	return *this;
 }
 
