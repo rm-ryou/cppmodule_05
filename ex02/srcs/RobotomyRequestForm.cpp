@@ -19,7 +19,8 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other): Form
 RobotomyRequestForm&	RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
 {
 	std::cout << "Robotomy Copy assignment operator called." << std::endl;
-	this->Form::operator=(other);
+	if (this != &other)
+		this->Form::operator=(other);
 	return *this;
 }
 
